@@ -32,4 +32,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
  4.ng serve --open
 
 ## Build angular production
-
+ng build --prod
