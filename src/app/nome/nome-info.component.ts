@@ -9,24 +9,17 @@ import { Nome } from './nome';
 
 export class NomeInfoComponent  implements OnInit {
 
-    //"strictPropertyInitialization": false
     registro: Nome ;
-    messageShow: string = '';
-    alertSalvoComSucesso: boolean = false;
-
     constructor(private nomeService: NomeService) { }
 
     ngOnInit(): void {
        this.registro = new Nome();
     }
 
-
-    newNome(): void {
-       this.messageShow = '';
-       this.alertSalvoComSucesso = false;
+    enviar(): void {
        this.nomeService.save(this.registro).subscribe({
-            next: registro => this.alertSalvoComSucesso = true,
-            error: err =>  this.messageShow = err.message
+            next: registro =>  console.log('nome salvo'+registro.nome),
+            error: err =>  console.log(err.message)
        });
     }
 }
